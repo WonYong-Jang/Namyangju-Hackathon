@@ -63,7 +63,8 @@ jspm_packages
 ehthumbs.db
 Thumbs.db
 
-
+#yolo
+yolo.weights
 
 #Excluding configuration files for Eclipse
 .metadata
@@ -72,6 +73,7 @@ tmp/
 *.tmp
 *.bak
 *.swp
+*.raw
 *~.nib
 local.properties
 .settings/
@@ -88,11 +90,4 @@ local.properties
 .springBeans
 .recommenders/
 
-### Maven ###
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
 

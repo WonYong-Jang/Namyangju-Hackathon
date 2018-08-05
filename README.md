@@ -1,1 +1,0 @@
-# Namyangju-Hackathon
