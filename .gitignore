@@ -65,6 +65,7 @@ Thumbs.db
 
 #yolo
 yolo.weights
+*.mp4
 
 #Excluding configuration files for Eclipse
 .metadata
