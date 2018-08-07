@@ -18,6 +18,7 @@
   "homepage": "https://github.com/zcx6263/Namyangju-Hackathon#readme",
   "dependencies": {
     "@moovel/yolo": "^0.2.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.3"
   }
 }
