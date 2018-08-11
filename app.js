@@ -24,13 +24,13 @@ app.post('/sendDetectInfo', function(req, res) {
   res.send( sendDetections );
 });
 
-
+//./darknet detector demo cfg/coco.data cfg/yolo.cfg yolo.weights <video file>
 darknet.detect({
   cfg: './cfg/yolo.cfg',
   weights: './yolo.weights',
   data: './cfg/coco.data',
   cameraIndex: 0, // optional, default: 0,
-  video: './test.mp4', // optional, forces to use the video file instead of a camera
+  video: './test2.mp4', // optional, forces to use the video file instead of a camera
   thresh: 0.24, // optional, default: 0.24
   hierThresh: 0.5, // optional, default: 0.5
 }, function(modified, original, detections, dimensions) {
