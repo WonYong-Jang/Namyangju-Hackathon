@@ -15,13 +15,13 @@ function init_vworld_map() {
 	setTimeout(function() {
 		addMarkerLayer();
 	}, 1000);
-	
+
 	init_change_map();
 }
 
 function init_change_map() {
-  vmap = new vw.ol3.Map("vmap",  vw.ol3.MapOptions); 
-  
+  vmap = new vw.ol3.Map("vmap",  vw.ol3.MapOptions);
+
   init_map_event();
 }
 
@@ -41,6 +41,11 @@ function init_map_event() {
 		var targetObj2 = $("#pos");
 		var plates = ["43아3944", "34사5942", "32가5932", "38하3739", "20나4951"];
 		var dust = 9 + (parseInt(Math.random() * 10) % 8);
+		
+		var market_types = ['상업', '공업', '지식산업'];
+		var estate_types = ['아파트', '주택지', '사무실'];
+		var air_types = ['양호', '보통', '나쁨'];
+
 		if (feature) {
 			switch(feature.get("type")) {
 				case "car":
@@ -53,8 +58,19 @@ function init_map_event() {
 				case "child":
 					targetObj.text("아이 상태: 양호");
 					break;
+				case "marker":
+					targetObj.html(
+						"<p>주 업종(상권): " +
+						market_types[ parseInt(Math.random() * 10) % market_types.length ] +
+						"</p><p>주 주거 형태: " +
+						estate_types[ parseInt(Math.random() * 10) % estate_types.length ] +
+						"</p><p>대기 환경: " + 
+						air_types[ parseInt(Math.random() * 10) % air_types.length ] +
+						"</p>"
+					);
+					break;
 				default:
-					targetObj.text("알 수 없는 존재");
+					targetObj.text("정보 불명");
 			}
 
 			targetObj2.html("위치: " + feature.get("x") + ", " + feature.get("y"));
@@ -72,7 +88,7 @@ function move(x,y,z){
 	});
 	vmap.beforeRender(pan);
 	vmap.getView().setCenter(_center);
-	
+
 	zoomLevel = z;
 
 	setTimeout("fnMoveZoom()", 300);
@@ -106,31 +122,27 @@ function addMarkerLayer() {
 
 // 마커 추가
 function addMarker() {
+        var coords = [
+                [14161570.59736702, 4528165.845591864],
+                [14161431.814608755, 4528091.466198151],
+                [14161434.511876509, 4528155.615773369]
+        ];
+
 	var data = [{
-		"type": "car",
-		"image": "/img/icon_car.png",
-		"title": "차량",
-		"contents": "감지된 차량입니다."
-	}, {
-		"type": "sensor",
-		"image": "/img/icon_camera.png",
-		"title": "센서",
-		"contents": "센서 위치입니다.",
-	}, {
-		"type": "child",
-		"image": "/img/icon_sister.png",
-		"title": "아이",
-		"contents": "아이가 안심할 수 있습니다."
+		"type": "marker",
+		"image": "/img/icon_marker.png",
+		"title": "도로",
+		"contents": "확인하고 계신 도로입니다."
 	}];
 
-	for(var i = 0; i < 1024; i++) {
+	for(var i = 0; i < coords.length; i++) {
 		var point = {
-			"x": 14161000.0 + (Math.random() * 1000),
-			"y": 4528000.0 + (Math.random() * 1000),
+			"x": coords[i][0],
+			"y": coords[i][1],
 			"z": 14
 		};
-		
-		var selectData =  data[parseInt(Math.random() * 10) % data.length ];
+
+		var selectData =  data[ parseInt(Math.random() * 10) % data.length ];
 
 		vw.ol3.markerOption = {
 			x : point.x,

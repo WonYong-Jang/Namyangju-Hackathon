@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>MAP</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="/purecss/pure-min.css" />
+	<style type="text/css">
+		html { margin: 0; padding: 0; width: 100%; height: 100%; }
+		body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; position: relative; }
+		#vmap { width: 100%; height: 100%; left: 0; top: 0; }
+		#mapcontrol { position: absolute; background-color: #fff; opacity: 0.8; width: 500px; height: 200px; top: 20px; right: 20px; font-size: 20px; }
+		#mapcontrol .inner { padding: 20px; }
+		#mapcontrol .inner p { margin-bottom: 20px; }
+		#mapgoto { position: absolute; right: 20px; bottom: 20px; font-size: 20px; }
+	</style>
+</head>
+
+<body>
+	<div id="vmap"></div>
+	
+	<div id="mapcontrol">
+		<div class="inner">
+			<p id="pos"></p>
+			<p id="mc_desc"></p>
+		</div>
+	</div>
+	
+	<div id="mapgoto">
+		<p><button class="pure-button" onclick="move_to_cityhall()">Go To</a></p>
+	</div>
+
+	<!-- jquery -->
+	<script src="/admin-lte/plugins/jquery/jquery.min.js"></script>
+
+	<!-- vworld -->
+	<script type="text/javascript" src="http://map.vworld.kr/js/vworldMapInit.js.do?version=2.0&apiKey=6656ED61-37D8-3B20-8EA7-078A6F22655E"></script>
+	<script src="/map2.js"></script>
+</body>
+
+</html>

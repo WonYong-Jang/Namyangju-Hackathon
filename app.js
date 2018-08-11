@@ -28,6 +28,10 @@ app.use('/roadBoard', function(req, res) {
   res.render('roadBoard');
 });
 
+app.use('/roadMap', function(req, res) {
+  res.render('roadMap');
+});
+
 /*
 app.post('/sendDetectInfo', function(req, res) {
 
