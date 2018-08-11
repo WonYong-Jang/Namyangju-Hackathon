@@ -24,6 +24,10 @@ app.use('/roadPage', function(req, res) {
   res.render('roadPage');
 });
 
+app.use('/roadBoard', function(req, res) {
+  res.render('roadBoard');
+});
+
 /*
 app.post('/sendDetectInfo', function(req, res) {
 
