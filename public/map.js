@@ -15,7 +15,7 @@ function init_vworld_map() {
 	setTimeout(function() {
 		addMarkerLayer();
 	}, 1000);
-
+	
 	init_change_map();
 }
 
@@ -30,6 +30,37 @@ function init_map_event() {
     var center = vmap.getView().getCenter();
     $("#pos").html(center[0] + ", " + center[1]);
   });
+
+// marker click event
+	vmap.on('click', function (evt) {
+		var feature = vmap.forEachFeatureAtPixel(evt.pixel,
+			function (feature) {
+				return feature;
+			});
+			
+		var targetObj = $("#mc_desc");
+		var targetObj2 = $("#pos");
+		var plates = ["43아3944", "34사5942", "32가5932", "38하3739", "20나4951"];
+		var dust = 9 + (parseInt(Math.random() * 10) % 8);
+		if (feature) {
+			switch(feature.get("type")) {
+				case "car":
+					targetObj.html("<p>차량 상태: 양호</p><p>차량 번호: " + plates[ parseInt(Math.random() * 10) % plates.length ]) + "</p>";
+					targetObj.append("<p>미세먼지: " + dust + " (pm1.0)</p>");
+					break;
+				case "sensor":
+					targetObj.text("센서 상태: 양호");
+					break;
+				case "child":
+					targetObj.text("아이 상태: 양호");
+					break;
+				default:
+					targetObj.text("알 수 없는 존재");
+			}
+
+			targetObj2.html("위치: " + feature.get("x") + ", " + feature.get("y"));
+		}
+	});
 }
 
 function move(x,y,z){
@@ -77,20 +108,23 @@ function addMarkerLayer() {
 // 마커 추가
 function addMarker() {
 	var data = [{
+		"type": "car",
 		"image": "/img/icon_car.png",
 		"title": "차량",
 		"contents": "감지된 차량입니다."
 	}, {
+		"type": "sensor",
 		"image": "/img/icon_camera.png",
 		"title": "센서",
 		"contents": "센서 위치입니다.",
 	}, {
+		"type": "child",
 		"image": "/img/icon_sister.png",
 		"title": "아이",
 		"contents": "아이가 안심할 수 있습니다."
 	}];
 
-	for(var i = 0; i < 10000; i++) {
+	for(var i = 0; i < 1024; i++) {
 		var point = {
 			"x": 14161000.0 + (Math.random() * 1000),
 			"y": 4528000.0 + (Math.random() * 1000),
@@ -107,7 +141,11 @@ function addMarker() {
 			contents : selectData.contents,
 			iconUrl : selectData.image
 		};
-		markerLayer.addMarker(vw.ol3.markerOption);
+		var newMarker = markerLayer.addMarker(vw.ol3.markerOption);
+		newMarker.set("x", point.x);
+		newMarker.set("y", point.y);
+		newMarker.set("id", "marker-" + (i + 1));
+		newMarker.set("type", selectData.type);
 	}
 }
 
