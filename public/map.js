@@ -124,6 +124,7 @@ function addMarker() {
 		"contents": "아이가 안심할 수 있습니다."
 	}];
 
+
 	for(var i = 0; i < 1024; i++) {
 		var point = {
 			"x": 14161000.0 + (Math.random() * 1000),
