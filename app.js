@@ -63,5 +63,5 @@ darknet.detect({
 
 app.listen(3007, function() {
   console.log('Example app listening on port 3007!');
-  console.log('http://localhost:3007/');
+  console.log('http://192.168.0.174:3007/');
 });
