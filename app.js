@@ -1,6 +1,6 @@
 const express = require('express');
 var router = express.Router();
-const darknet = require('@moovel/yolo');
+//const darknet = require('@moovel/yolo');
 const fs = require('fs');
 
 var app = express();
@@ -9,18 +9,24 @@ var sendDetections;
 app.set("view engine", "ejs");
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
-
+//app.use(express.static('public'));
+app.use('/public', express.static('public'));
 
 app.get('/', function(req,res) {
   res.send('hello');
+});
+
+app.get('/dashboard', function(req, res) {
+  res.render('dashboard');
 });
 
 app.use('/roadPage', function(req, res) {
   res.render('roadPage');
 });
 
+/*
 app.post('/sendDetectInfo', function(req, res) {
-  
+
   res.send( sendDetections );
 });
 
@@ -41,7 +47,7 @@ darknet.detect({
 
   //var jsonData = JSON.stringify(detections);
   //console.log(jsonData);
-
+*/
   //fs.writeFileSync('./data.modified.raw', modified);
   // ffmpeg -f rawvideo -s 768x576 -pix_fmt bgr24 -i data.raw data.png
   //fs.writeFileSync('./data.raw', original);
@@ -52,7 +58,7 @@ darknet.detect({
   detections - array of detections
   dimenstions - image width and height
   */
-});
+//});
 
 
 app.listen(3007, function() {
