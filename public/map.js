@@ -90,7 +90,7 @@ function addMarker() {
 		"contents": "아이가 안심할 수 있습니다."
 	}];
 
-	for(var i = 0; i < 10000; i++) {
+	for(var i = 0; i < 100; i++) {
 		var point = {
 			"x": 14161000.0 + (Math.random() * 1000),
 			"y": 4528000.0 + (Math.random() * 1000),
