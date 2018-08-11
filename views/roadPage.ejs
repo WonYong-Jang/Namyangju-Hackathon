@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <title>roadPage</title>
-</head>
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-
-<body>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>roadPage</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  </head>
+  <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  <body>
 
   <div id="info"></div>
 
-</body>
+  </body>
 
-<script type="text/javascript">
-  $(function () {
-    timer = setInterval(function () {
+  <script type="text/javascript">
 
-      $.ajax({
-        url: '/sendDetectInfo',
-        dataType: 'json',
-        method: 'post',
-        success: function (result) {
-          var len = result.length, cnt = 0;
-          for (var i = 0; i < len; i++) {
-            if (result[i].name == 'car' || result[i].name == 'truck' ||
-              result[i].name == 'bus' || result[i].name == 'train') {
-              cnt++;
+    $(function () {
+      timer = setInterval(function () {
+
+        $.ajax({
+          url: '/sendDetectInfo',
+          dataType: 'json',
+          method: 'post',
+          success: function (result) {
+            var len = result.length, cnt = 0;
+            for (var i = 0; i < len; i++) {
+              if (result[i].name == 'car' || result[i].name == 'truck' ||
+                result[i].name == 'bus' || result[i].name == 'train') {
+                cnt++;
+              }
             }
+            $("#info").html(cnt);
           }
-          $("#info").html(cnt);
-        }
-      });
-    }, 1000);
-  });
-</script>
+        });
+      }, 1000);
+    });
+  </script>
+ 
 
 </html>
