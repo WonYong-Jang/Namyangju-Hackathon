@@ -47,8 +47,9 @@ darknet.detectImage({
 
 - 참고 링크 : https://github.com/moovel/node-yolo/blob/master/README.md
 
-## OPEN API : 2D지도 API 2.0 레퍼런스 ( http://dev.vworld.kr/dev/v4dv_opn2dmap2guide_s001.do )
+## OPEN API : 2D지도 API 2.0 레퍼런스 
 
+- http://dev.vworld.kr/dev/v4dv_opn2dmap2guide_s001.do 
 - [OpenLayers3] 지도 상에 포인트 마커 표시 및 클릭
 - 참고 링크 : http://www.gisdeveloper.co.kr/?p=2502
 
@@ -57,4 +58,4 @@ darknet.detectImage({
  - Bootstrap 기반의 Admin 사이트를 쉽게 개발하게 해주는 템플릿
  - javascript 라이브러리를 사용하여 만들어져 있고, 관리자 사이트에 필요한 다양한 차트 등을 제공
  - https://github.com/almasaeed2010/AdminLTE 
- - branch  ->  v3-dev  ->  git clone -b v3-dev https://github.com/almasaeed2010/AdminLTE.git (vendor 폴더에 설치)
+ - branch  ->  v3-dev 브랜치 선택  -> $ git clone -b v3-dev https://github.com/almasaeed2010/AdminLTE.git (vendor 폴더에 설치)
