@@ -32,6 +32,8 @@ $ ./darknet detector demo cfg/coco.data cfg/yolo.cfg yolo.weights    # 동영상
 
 ## moovel/node-yolo 
 
+$ npm install @moovel/yolo --save
+
 ```
 const darknet = require('@moovel/yolo');
 
