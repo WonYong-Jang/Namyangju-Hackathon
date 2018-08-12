@@ -1,6 +1,6 @@
 const express = require('express');
 var router = express.Router();
-//const darknet = require('@moovel/yolo');
+const darknet = require('@moovel/yolo');
 const fs = require('fs');
 
 var app = express();
@@ -32,7 +32,7 @@ app.use('/roadMap', function(req, res) {
   res.render('roadMap');
 });
 
-/*
+
 app.post('/sendDetectInfo', function(req, res) {
 
   res.send( sendDetections );
@@ -55,7 +55,7 @@ darknet.detect({
 
   //var jsonData = JSON.stringify(detections);
   //console.log(jsonData);
-*/
+
   //fs.writeFileSync('./data.modified.raw', modified);
   // ffmpeg -f rawvideo -s 768x576 -pix_fmt bgr24 -i data.raw data.png
   //fs.writeFileSync('./data.raw', original);
@@ -66,7 +66,7 @@ darknet.detect({
   detections - array of detections
   dimenstions - image width and height
   */
-//});
+});
 
 
 app.listen(3007, function() {
