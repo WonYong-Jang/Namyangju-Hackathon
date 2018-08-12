@@ -72,7 +72,7 @@ function move(x,y,z){
 	});
 	vmap.beforeRender(pan);
 	vmap.getView().setCenter(_center);
-	
+
 	zoomLevel = z;
 
 	setTimeout("fnMoveZoom()", 300);
@@ -116,12 +116,14 @@ function addMarker() {
 		"image": "/img/icon_camera.png",
 		"title": "센서",
 		"contents": "센서 위치입니다.",
-	}, {
-		"type": "child",
-		"image": "/img/icon_sister.png",
-		"title": "아이",
-		"contents": "아이가 안심할 수 있습니다."
-	}];
+	}
+        //, {
+	//	"type": "child",
+	//	"image": "/img/icon_sister.png",
+	//	"title": "아이",
+	//	"contents": "아이가 안심할 수 있습니다."
+	//}
+        ];
 
 
 	for(var i = 0; i < 1024; i++) {
@@ -130,7 +132,7 @@ function addMarker() {
 			"y": 4528000.0 + (Math.random() * 1000),
 			"z": 14
 		};
-		
+
 		var selectData =  data[parseInt(Math.random() * 10) % data.length ];
 
 		vw.ol3.markerOption = {
