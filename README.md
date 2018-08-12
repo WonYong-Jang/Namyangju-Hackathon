@@ -32,6 +32,7 @@ $ ./darknet detector demo cfg/coco.data cfg/yolo.cfg yolo.weights    # 동영상
 
 ## moovel/node-yolo 
 
+- yolo 인식 데이터를 node.js 연동
 $ npm install @moovel/yolo --save
 
 ```
