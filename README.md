@@ -1,6 +1,14 @@
 # Namyangju-Hackathon
 
+<img width="838" alt="2018-08-13 1 06 44" src="https://user-images.githubusercontent.com/26623547/44012413-e4efaa44-9ef9-11e8-9d6b-c37a07c2099c.png">
+
+
 ## Yolo 설치 과정 
+
+- Yolo(You Only Look Once) : 딥러닝 프레임워크 중 하나이며 영상에 물체를 실시간 감지하여 바운딩 박스를 그려줌으로써
+감지화면을 실시간으로 확인 시켜주는 것이 장점
+
+- Deep Learning Real Time Object Detection Algorithm 들 중 뛰어난 정확도 
 
 Requires: 
 
@@ -32,8 +40,11 @@ $ ./darknet detector demo cfg/coco.data cfg/yolo.cfg yolo.weights    # 동영상
 
 ## moovel/node-yolo 
 
-- yolo 인식 데이터를 node.js 연동
+- yolo 영상 인식 데이터를 웹 서버와 연동( node.js / express)
+
 $ npm install @moovel/yolo --save
+
+- 아래 소스코드는 node.js 일부 소스코드이며 이미지 데이터를 웹 서버로 전송 
 
 ```
 const darknet = require('@moovel/yolo');
@@ -62,3 +73,10 @@ darknet.detectImage({
  - javascript 라이브러리를 사용하여 만들어져 있고, 관리자 사이트에 필요한 다양한 차트 등을 제공
  - https://github.com/almasaeed2010/AdminLTE 
  - branch  ->  v3-dev 브랜치 선택  -> $ git clone -b v3-dev https://github.com/almasaeed2010/AdminLTE.git (vendor 폴더에 설치)
+
+ ## 최종 결과 
+
+- 고속도로 및 로드킬 위험 지역의 영상 데이터를 바탕으로 하여 운전자에게 실시간으로 정보를 제공해주는 지도 기반 종합 페이지 설계 및 개발
+
+ <img width="1093" alt="2018-08-13 1 19 48" src="https://user-images.githubusercontent.com/26623547/44012659-ba0d3560-9efb-11e8-9bba-02c6d359c724.png">
+
