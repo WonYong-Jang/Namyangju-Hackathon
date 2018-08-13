@@ -44,7 +44,8 @@ $ ./darknet detector demo cfg/coco.data cfg/yolo.cfg yolo.weights    # 동영상
 
 $ npm install @moovel/yolo --save
 
-- 아래 소스코드는 node.js 일부 소스코드이며 이미지 데이터를 웹 서버로 전송 
+- 아래 소스코드는 node.js 일부 소스코드이며 이미지 데이터를 웹 서버로 전송
+- 탐지 데이터 : 탐지된 물체의 위치와 탐지된 물체 이름과 수 
 
 ```
 const darknet = require('@moovel/yolo');
@@ -72,11 +73,13 @@ darknet.detectImage({
  - Bootstrap 기반의 Admin 사이트를 쉽게 개발하게 해주는 템플릿
  - javascript 라이브러리를 사용하여 만들어져 있고, 관리자 사이트에 필요한 다양한 차트 등을 제공
  - https://github.com/almasaeed2010/AdminLTE 
- - branch  ->  v3-dev 브랜치 선택  -> $ git clone -b v3-dev https://github.com/almasaeed2010/AdminLTE.git (vendor 폴더에 설치)
+ - branch  ->  v3-dev 브랜치 선택  
+ -> $ git clone -b v3-dev https://github.com/almasaeed2010/AdminLTE.git (vendor 폴더에 설치)
 
  ## 최종 결과 
 
-- 고속도로 및 로드킬 위험 지역의 영상 데이터를 바탕으로 하여 운전자에게 실시간으로 정보를 제공해주는 지도 기반 종합 페이지 설계 및 개발
+- 고속도로 및 로드킬 위험 지역의 영상 데이터를 바탕으로 하여 
+운전자에게 실시간으로 정보를 제공해주는 지도 기반 종합 페이지 설계 및 개발
 
  <img width="1093" alt="2018-08-13 1 19 48" src="https://user-images.githubusercontent.com/26623547/44012659-ba0d3560-9efb-11e8-9bba-02c6d359c724.png">
 
