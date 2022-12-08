@@ -20,7 +20,7 @@
     "@moovel/yolo": "^0.2.0",
     "admin-lte": "./vendor/AdminLTE",
     "ejs": "^2.6.1",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "purecss": "^1.0.0"
   },
   "devDependencies": {
